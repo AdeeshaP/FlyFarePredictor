@@ -1,4 +1,7 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flyfarepredictor_app/models/user_model.dart';
 
 import '../../constants.dart';
 
@@ -11,6 +14,22 @@ class HomeBody extends StatefulWidget {
 
 //
 class _HomeBodyState extends State<HomeBody> {
+  User? user = FirebaseAuth.instance.currentUser;
+  UserModel loggedInUser = UserModel();
+
+  @override
+  void initState() {
+    super.initState();
+    FirebaseFirestore.instance
+        .collection("users")
+        .doc(user!.uid)
+        .get()
+        .then((value) {
+      this.loggedInUser = UserModel.fromMap(value.data());
+      setState(() {});
+    });
+  }
+
   String date = "";
   DateTime selectedDate = DateTime.now();
 
@@ -22,7 +41,20 @@ class _HomeBodyState extends State<HomeBody> {
   var noOfStops = [1, 2, 3, 4, 5];
   var destinations = ["", "", "", "", ""];
   var sources = ["", "", "", "", ""];
-  var airlines = ["", "", "", "", ""];
+  var airlines = [
+    "IndiGo",
+    "Air India",
+    "Jet Airways",
+    "SpiceJet",
+    "Vistara",
+    "Air Asia",
+    "Multiple carriers",
+    "GoAir",
+    "Jet Airways Business",
+    "Multiple carriers Premium economy",
+    "Trujet",
+    "Vistara Premium economy"
+  ];
 
   @override
   Widget build(BuildContext context) {

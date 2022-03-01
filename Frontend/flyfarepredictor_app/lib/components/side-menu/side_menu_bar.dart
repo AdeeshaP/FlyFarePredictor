@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flyfarepredictor_app/screens/about_us_screen.dart';
 import 'package:flyfarepredictor_app/screens/contact_us_screen.dart';
 import 'package:flyfarepredictor_app/screens/home_screen.dart';
@@ -69,6 +70,7 @@ class SideMenuBarWidget extends StatelessWidget {
             ),
             onTap: () {
               Navigator.of(context).pushReplacementNamed(LoginScreen.routeName);
+              logout(context);
             },
             // onTap: () {
             //   Navigator.pop(context);
@@ -77,5 +79,11 @@ class SideMenuBarWidget extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  Future<void> logout(BuildContext context) async {
+    await FirebaseAuth.instance.signOut();
+    Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (context) => LoginScreen()));
   }
 }

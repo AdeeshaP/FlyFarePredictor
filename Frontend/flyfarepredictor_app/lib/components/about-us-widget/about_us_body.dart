@@ -27,17 +27,16 @@ class AboutUsBody extends StatelessWidget {
               Container(
                 margin: const EdgeInsets.all(7.0),
                 child: Text(
-                  "This is a Flight Fares Predcitable Application. This is for public usage. Any user can access this application."
-                  "You can be aware of fluctuation of airline ticket prices and this app may help you to know the best time to"
-                  " buy your ticket. Also it predicts  the lowest price  of the ticket of the airline which he wishes to travel. \n\n"
-                  "This app is based on a pilot study and I selected only few flight routes such as from USA to UK, UK to USA, India to USA, USA to India, "
-                  "Qatar to Sri Lanka, Sri Lanka to Qatar.\n\n"
-                  "You should input the date when you wish to book the ticket and also you should select the flight also. Then The system will "
-                  "predict the price of the ticket and show the predicted ticket price. Also the system will recommend "
+                  "This is an application for flight fares predcition and generate a rough recommendation for passengers. This is for public usage. Any user can access this application."
+                  "Since you are not aware of fluctuation of airline ticket prices and this app will help you to think the best time for"
+                  " reserving your tickets. Also this predicts the lowest price of the ticket of the airline which he wishes to travel. \n\n"
+                  "This app is based on a pilot study and I selected only few flight routes in India.\n\n"
+                  "In the Home Page, you should input the details of the flight when you wish to book the ticket. Then the app will "
+                  "predict the results and shpw you the predicted results. Also the system will recommend "
                   "to whether you should book the ticket or you should wait to book the ticket on that date which you needs to fly.",
                   style: TextStyle(
                     fontSize: 16,
-                    color: Color(0xFF880E4F).withOpacity(0.9),
+                    color: Color.fromARGB(255, 96, 3, 53).withOpacity(0.9),
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -99,16 +98,18 @@ class AboutUsBody extends StatelessWidget {
               Container(
                 margin: const EdgeInsets.all(7.0),
                 child: Text(
-                  "I am a software enginner undergraduate studying in Informatics Institute of Technology located at Colombo 06. "
-                  "As per the key requirement for passing the Final year, we need to complete a research project and that's why I selected this domain."
-                  "There are so many web based apps to predict the flight fares but there are less number of Mobile apps.",
+                  "I am an undergraduate student who is following a BEng (Hons) Software Engineering Degree at Informatics Institute of Technology affiliated with"
+                  " University of Westminster at Colombo 06. \n\n"
+                  "As per the key requirement for passing the Final year, we need to complete the final year research project. For that project, I selected the aviation domain."
+                  "There are so many web based apps to predict the flight fares but there are no number of Mobile apps I was able find.",
                   style: TextStyle(
                     fontSize: 16,
-                    color: Color(0xFF880E4F).withOpacity(0.9),
+                    color: Color.fromARGB(255, 96, 3, 53).withOpacity(0.9),
                     fontWeight: FontWeight.bold,
                   ),
                 ),
               ),
+              SizedBox(height: 10),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[

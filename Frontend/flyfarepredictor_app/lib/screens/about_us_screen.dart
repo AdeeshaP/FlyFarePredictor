@@ -76,7 +76,7 @@ class AboutUsAppBar extends StatelessWidget {
                     "About Us",
                     style: TextStyle(
                       fontSize: uiTitleFontSize,
-                      color: Colors.black54,
+                      color: Color.fromARGB(133, 0, 0, 0),
                       fontWeight: FontWeight.bold,
                     ),
                   ),

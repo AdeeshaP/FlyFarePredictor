@@ -104,6 +104,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         if (!regex.hasMatch(value)) {
           return ("Enter Valid Password. (Min. 6 Character)");
         }
+        return null;
       },
       onSaved: (value) {
         userNameController.text = value!;
@@ -125,8 +126,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
       controller: confirmPasswordController,
       obscureText: true,
       validator: (value) {
-        if (confirmPasswordController.text !=
-            passwordController.text) {
+        if (confirmPasswordController.text != passwordController.text) {
           return "Password doesn't match";
         }
         return null;
@@ -309,7 +309,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
   }
 
   postDetailsToFirestore() async {
-  
     FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
     User? user = _auth.currentUser;
 

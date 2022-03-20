@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:url_launcher/url_launcher.dart' as UrlLauncher;
 
 import '../../constants.dart';
 
@@ -20,34 +21,6 @@ class ContactUsBody extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: <Widget>[
-              // Column(
-              //   children: <Widget>[
-              //     CircleAvatar(
-              //       radius: 48,
-              //       backgroundColor: profilePicBorderColor,
-              //       child: CircleAvatar(
-              //         backgroundImage: AssetImage('assets/images/profile.jpeg'),
-              //         radius: 45,
-              //       ),
-              //     ),
-              //     SizedBox(height: 10),
-              //     Text(
-              //       "Adeesha Perera",
-              //       style: TextStyle(
-              //         fontWeight: FontWeight.bold,
-              //         color: Color(0xFF212121),
-              //         fontSize: 18,
-              //       ),
-              //     ),
-              //     Text(
-              //       "Software Engineer/ Mobile App Developer",
-              //       style: TextStyle(
-              //           fontWeight: FontWeight.normal,
-              //           color: Color(0xFF212121),
-              //           fontSize: 15),
-              //     ),
-              //   ],
-              // ),
               SizedBox(height: 10),
               Divider(
                 thickness: 5,
@@ -71,10 +44,11 @@ class ContactUsBody extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(15.0),
+                      padding: const EdgeInsets.only(left: 6.0, bottom: 5),
                       child: Column(
                         children: [
                           Icon(FontAwesomeIcons.mobileAlt),
+                          // Icon(FontAwesomeIcons.mobileAlt),
                           SizedBox(height: 5),
                           Icon(FontAwesomeIcons.phone),
                         ],

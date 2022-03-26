@@ -45,13 +45,14 @@ def predict_flight_fare():
     arrmin = int(request.form['arrival_minutes'])
     durhour = int(request.form['duration_hours'])
     durmin = int(request.form['duration_minutes'])
-    
 
     response = jsonify({
-        'predicted_fare': util.get_predicted_fare(airline, source, destination, stops, journeyday, journeymonth, dephour, depmin, arrhour, arrmin, durhour, durmin)[0],
-        'lowest': util.get_predicted_fare(airline, source, destination, stops, journeyday, journeymonth, dephour, depmin, arrhour, arrmin, durhour, durmin)[1],
-        'recommendation': util.get_predicted_fare(airline, source, destination, stops, journeyday, journeymonth, dephour, depmin, arrhour, arrmin, durhour, durmin)[2],     
-
+        'predicted_fare': util.get_predicted_fare(airline, source, destination, stops, journeyday, journeymonth,
+                                                  dephour, depmin, arrhour, arrmin, durhour, durmin)[0],
+        'lowest': util.get_predicted_fare(airline, source, destination, stops, journeyday, journeymonth, dephour,
+                                          depmin, arrhour, arrmin, durhour, durmin)[1],
+        'recommendation': util.get_predicted_fare(airline, source, destination, stops, journeyday, journeymonth,
+                                                  dephour, depmin, arrhour, arrmin, durhour, durmin)[2],     
     })
     response.headers.add('Access-Control-Allow-Origin', '*')
 

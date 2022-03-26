@@ -10,15 +10,16 @@ __data_columns = None
 __model = None
 
 df1 = pd.read_excel('D:/FYP/Implementation/Data Science/Flight_Data_Train.xlsx')
-df2= df1.drop(['Total_Stops','Date_of_Journey','Source','Destination', 'Route', 'Dep_Time', 'Arrival_Time', 'Duration', 'Additional_Info'],axis ='columns')
+df2= df1.drop(['Total_Stops','Date_of_Journey', 'Route', 'Dep_Time', 'Arrival_Time', 'Duration', 'Additional_Info'],axis ='columns')
 df3 = df2.dropna()
 df3.isnull().sum()
 
-dummies = pd.get_dummies(df3[['Airline']])
-df4 = pd.concat([df3,dummies],axis='columns')
-df5 = df4.drop(['Airline'],axis='columns')
+dummies1 = pd.get_dummies(df3[['Airline']])
+dummies2 = pd.get_dummies(df3[['Source']])
+dummies3 = pd.get_dummies(df3[['Destination']])
 
-print(df5.columns)
+df4 = pd.concat([df3,dummies1, dummies2, dummies3],axis='columns')
+df5 = df4.drop(['Airline', 'Source','Destination'],axis='columns')
 
 def get_predicted_fare(airline, source, destination, stops, journeyday, journeymonth, dephour, depmin, arrhour, arrmin, durhour, durmin):
 
@@ -26,17 +27,11 @@ def get_predicted_fare(airline, source, destination, stops, journeyday, journeym
     
     try:
         airline_index = __data_columns.index(airline)
-    except:
-        destination_index = -1
-        
-    try:
         source_index = __data_columns.index(source)
-    except:
-        source_index = -1
-
-    try:
         destination_index = __data_columns.index(destination)
     except:
+        airline_index = -1
+        source_index = -1
         destination_index = -1
 
     x = np.zeros(len(__data_columns))
@@ -60,17 +55,18 @@ def get_predicted_fare(airline, source, destination, stops, journeyday, journeym
         x[destination_index] = 1
     
     predictfare = __model.predict([x])[0]
+    df_new1 = df5[df5[airline] == 1]
+    df_new2 = df_new1[df_new1[source] == 1]
+    df_new3 = df_new2[df_new2[destination] == 1]
 
-    df_new = df5[df5[airline] == 1]
-    lowestfare = min(df_new['Price'])
+    lowestfare = min(df_new3['Price'])
     
     recommendation = ""
     message1 = "BUY"
     message2 = "WAIT"
     
-    if predictfare > df_new["Price"].mean() :
+    if predictfare < df_new3["Price"].mean() :
         recommendation = message1
-
     else:
         recommendation = message2
 

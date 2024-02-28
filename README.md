@@ -11,6 +11,15 @@ Machine Learning Integration: Incorporates machine learning models using librari
 Flask API: Implements a Flask RESTful API to handle backend operations and serve data to the frontend.
 Flutter UI: Develops a responsive and engaging user interface using Flutter for seamless user interaction.
 
+## App Functions
+
+1. User Signup and Signin
+2. Insert flight details (date, departure and arrival airports, flight name, no of hours, departure and arrival time)
+3. Outputs the predicted flight fares
+4. Outputs the suggesiton whether user should buy the tickets or not
+5. Also suggests which days teh fares will be reduced.
+
 ## Demo
 
-https://youtu.be/se1FsSnP_r8
+https://github.com/AdeeshaP/FlyFarePredictor/assets/60777643/a72fc442-fbf3-4e17-9c4b-e612e6dfa2b7
+
